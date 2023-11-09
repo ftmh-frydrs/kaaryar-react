@@ -6,4 +6,7 @@
   
   background-color: #e0e9e9;
   border-radius: 4px;
+
+  overflow-y: scroll;
 }
+
