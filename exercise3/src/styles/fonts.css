@@ -1,14 +1,32 @@
 @font-face {
-    font-family: 'vazirmatn_Bold';
-    src:url(../fonts/Vazirmatn-UI-Bold.woff2);
-
-    font-family: 'vazirmatn_Medium';
-    src:url(../fonts/Vazirmatn-UI-Medium.woff2);
-
-    font-family: 'vazirmatn_Regular';
-    src:url(../fonts/Vazirmatn-UI-Regular.woff2);
-
-    font-family: 'vazirmatn_SemiBold';
-    src:url(../fonts/Vazirmatn-UI-SemiBold.woff2);
-}
+    font-family: 'Vazirmatn Bold';
+    src: url('../fonts/Vazirmatn-UI-Bold.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Vazirmatn Medium';
+    src: url('../fonts/Vazirmatn-UI-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Vazirmatn Regular';
+    src: url('../fonts/Vazirmatn-UI-Regular.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Vazirmatn SemiBold';
+    src: url('../fonts/Vazirmatn-UI-SemiBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
 
