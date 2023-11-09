@@ -5,9 +5,11 @@ import MessageList from '../MessageList';
 
 const ChatBox = () => {
     return (
-        <div className="chat-box">
+        <div className='chat-box_container'>
+            <div>
             <MessageList message={Datamessage}/>
               <Actions />
+             </div>
         </div>
     )
 };
