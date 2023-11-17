@@ -1,39 +1,25 @@
 .message {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-
   margin-bottom: 8px;
-  max-height: 150px;
-
-  overflow: hidden;
 }
 
 .message-body {
   background-color: #F2F2F2;
   color: #333333;
-
   padding: 12px;
-
   max-width: 50%;
-  max-height: 150px;
-
   word-break: break-word;
   text-overflow: ellipsis;
   white-space: nowrap;
   direction: rtl;
   overflow: hidden;
-  font-family: 'Vazirmatn Medium';
+  line-height: 1.4;
 }
 
-.message-body.expanded {
-  white-space: normal;
-  max-height: auto;
-  padding-top: 10px;
-
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+.message-body.collapsed {
+  max-height: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .message.peer {
@@ -43,7 +29,6 @@
 .message.peer .message-body {
   background-color: #12A3CC;
   color: #FFFFFF;
-
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -57,17 +42,8 @@
 .message.self .message-body {
   background-color: #DB0142;
   color: #FFFFFF;
-  
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   margin-right: 20px;
 }
-
-@media (max-width: 576px) {
-  .message-body {
-    max-width: 80%;
-  }
-}
-
-
