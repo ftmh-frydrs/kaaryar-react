@@ -1,8 +1,9 @@
 import Button from "../Button";
+import './style.css'
 
 const Action = () => {
     return (
-        <div>
+        <div className="action">
             <Button name='تایید'/>
             <Button name='منصرف شدم'/>
         </div>

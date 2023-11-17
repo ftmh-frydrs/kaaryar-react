@@ -1,7 +1,9 @@
+import './style.css'
+
 const Button = ({name}) => {
     return(
         <div>
-            <button type="submit" className="todo-btn">
+            <button type="submit" className="btn">
           {name}
              </button>
         </div>
