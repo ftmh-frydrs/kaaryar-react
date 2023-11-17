@@ -1,0 +1,17 @@
+.orderItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .buy {
+    color: #008000; 
+  }
+  
+  .sell {
+    color: #ff0000;
+  }
+  

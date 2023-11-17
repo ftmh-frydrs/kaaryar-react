@@ -4,15 +4,22 @@ const Header = () => {
     return (
         <div className="header">
           <div className="header-item">
-          <h1>Sell</h1>
-          <h1>Buy</h1>
+          <div>
+            <h1>Sell</h1>
+          </div>
+          <div>
+            <h1>
+            Buy
+            </h1>
+          </div>
           </div>
           <div className="header-item">
-          <p>Total(SAT)</p>
           <p>Amount(SAT)</p>
+          <p>Total(SAT)</p>
           <p>PRICE(RIAL)</p>
-          <p>Amount(SAT)</p>
+
           <p>Total(SAT)</p>
+          <p>Amount(SAT)</p>
           </div>
         </div>
       );

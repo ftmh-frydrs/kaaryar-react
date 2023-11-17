@@ -1,9 +1,12 @@
 import './App.css';
 import OrderShell from './components/ OrderShell';
 
+
 function App() {
   return (
-    <OrderShell />
+   <div>
+     <OrderShell />
+   </div>
   );
 }
 

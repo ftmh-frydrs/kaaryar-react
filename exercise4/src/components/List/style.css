@@ -1,0 +1,17 @@
+.list-container {
+    display: flex;
+    justify-content: space-between;
+    overflow-y: auto;
+    margin-left: 70px;
+    margin-right: 70px;
+  }
+  
+  .list-section {
+    flex: 1;
+  }
+  
+  .list {
+    max-height: 500px;
+  }
+  
+ 
