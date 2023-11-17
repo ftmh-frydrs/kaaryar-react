@@ -5,7 +5,7 @@ import ordersData from '../../data/orders.json';
 
 const OrderShell = () => {
 
-  const maximumTotal = Math.max(...ordersData.map(order => order.total));
+  const maximumTotal = Math.max(...ordersData.map(order => Number(order.total) || 0));
   console.log(maximumTotal);
   return (
     <div className="OrderShell">
@@ -16,3 +16,4 @@ const OrderShell = () => {
 };
 
 export default OrderShell;
+

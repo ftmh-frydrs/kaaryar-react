@@ -7,8 +7,9 @@
     justify-content: space-around;
 }
 
-.header-item >div {
+.header-item h1 {
     font-weight: 800;
     font-size: x-large;
     margin: 16px;
 }
+
