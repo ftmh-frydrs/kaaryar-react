@@ -1,13 +1,9 @@
+import './style.css'
+
 const Header = () => {
   return (
-    <div>
-      <form className="TodoForm">
-        <input
-          type="text"
-          className="todo-input"
-          placeholder="What is the task today?"
-        />
-      </form>
+    <div className='header'>
+        <p>لیست کارها</p>
     </div>
   );
 };
