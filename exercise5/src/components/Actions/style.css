@@ -2,11 +2,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     gap: 16px;
-    border-top: 1px solid gray;
-    padding: 16px;
+    padding: 16px 32px;
     margin: 16px;
-  }
-  
-  .action .btn {
-    width: 100%;
+    box-shadow: 0 1px 0 gray inset;
+    /*  gives an effect of a border while taking up no space */
   }

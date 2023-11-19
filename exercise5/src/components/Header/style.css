@@ -1,6 +1,6 @@
 .header>h5 {
     font-size: 18px;    
     padding: 32px 16px;
-    border-bottom: 1px solid gray;
-
+    box-shadow: 0 1px 0 gray; 
+    /*  gives an effect of a border while taking up no space */
 }
