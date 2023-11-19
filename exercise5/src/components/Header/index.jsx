@@ -1,9 +1,9 @@
 import './style.css'
 
-const Header = () => {
+const Header = ({title}) => {
   return (
     <div className='header'>
-        <p>لیست کارها</p>
+        <h5>{title}</h5>
     </div>
   );
 };

@@ -1,0 +1,23 @@
+.items {
+    padding: 16px 0px 16px 0px;
+
+    max-height: 500px; 
+    overflow-y: auto; 
+    
+}
+
+
+.items::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+
+  .items::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 4px;
+  }
+  
+
+  .items::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }

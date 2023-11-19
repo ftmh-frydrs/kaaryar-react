@@ -7,7 +7,7 @@ import './style.css'
 const Container = () => {
     return (
         <div className="container">
-            <Header />
+            <Header title="لیست کار ها"/>
             <Items works={works} />
             <Action />
         </div>
