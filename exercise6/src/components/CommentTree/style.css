@@ -1,18 +1,16 @@
 .comment-tree {
-    width: 80%;
-    margin: 0 auto;
-    overflow-y: auto;
-    max-height: 100vh;
-    background-color: #ffffffc0;
-    border-radius: 16px;
-  }
-
-
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  overflow-y: auto;
+  max-height: 100vh;
+  background-color: #ffffffc0;
+  border-radius: 16px;
+}
 
 
 @media (max-width: 767px) {
     .comment-tree {
       width: 100%;
-      /* max-height: none; */
     }
   }

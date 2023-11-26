@@ -1,26 +1,23 @@
 .comment {
-    margin-bottom: 16px;
-    padding: 8px;
-    border-radius: 4px;
-    font-family: 'Vazirmatn Medium';
-    direction: rtl;
-  }
-
-  .comment-container{
-    display: flex;
-    direction: rtl;
-  }
-
-  .comment-p {
-    border: 1px solid #ddd;
-    padding: 16px;
-    border-radius: 16px;
-    background-color: #fff;
-    line-height: 1.6;
+  margin-bottom: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  font-family: 'Vazirmatn Medium';
+  max-width: 90%;
+  margin-left: 0; 
 }
 
-.reply {
-    color: green;
+.comment-p {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+.comment-container {
+  display: flex;
+  direction: rtl;
 }
 
 .avatar {
@@ -31,7 +28,13 @@
 }
 
 @media (max-width: 767px) {
-    .comment {
-      width: 100%;
-    }
+  .comment {
+    max-width: 100%;
   }
+
+  .avatar {
+    width: 25px; 
+    height: 25px; 
+    margin: 5px;
+  }
+}
