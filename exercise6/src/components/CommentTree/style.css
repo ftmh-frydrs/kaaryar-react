@@ -1,0 +1,16 @@
+.comment-tree {
+    width: 100%;
+    margin: 0 auto;
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+
+
+
+
+@media (max-width: 767px) {
+    .comment-tree {
+      width: 100%;
+      /* max-height: none; */
+    }
+  }

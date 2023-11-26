@@ -1,0 +1,26 @@
+.comment {
+    width: 90%;
+    margin-bottom: 16px;
+    padding: 8px;
+    border-radius: 4px;
+    font-family: 'Vazirmatn Medium';
+  }
+
+  .comment-p {
+    border: 1px solid #ddd;
+    direction: rtl;
+    padding: 16px;
+    border-radius: 16px;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+.reply {
+    color: green;
+}
+
+@media (max-width: 767px) {
+    .comment {
+      width: 100%;
+    }
+  }
