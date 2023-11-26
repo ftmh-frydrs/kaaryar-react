@@ -1,14 +1,18 @@
 .comment {
-    width: 90%;
     margin-bottom: 16px;
     padding: 8px;
     border-radius: 4px;
     font-family: 'Vazirmatn Medium';
+    direction: rtl;
+  }
+
+  .comment-container{
+    display: flex;
+    direction: rtl;
   }
 
   .comment-p {
     border: 1px solid #ddd;
-    direction: rtl;
     padding: 16px;
     border-radius: 16px;
     background-color: #fff;
@@ -17,6 +21,13 @@
 
 .reply {
     color: green;
+}
+
+.avatar {
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%; 
+  margin: 10px;
 }
 
 @media (max-width: 767px) {
