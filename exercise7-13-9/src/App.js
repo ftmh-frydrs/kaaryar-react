@@ -50,20 +50,19 @@ const App = () => {
         </Button>
       </div>
 
-      <Button as="a" href="https://google.com" target="_blank" look={Button.LOOKS.DARK}>
-        Go to google.com in a new tab!
+      <Button size={Button.SIZES.LARGE}>
+        Button lg
+      </Button>
+      <Button as="a" href="https://google.com" target="_blank">
+        Button
       </Button>
       <Button
         type="submit"
-        variant={Button.VARIANTS.FILLED}
-        look={Button.LOOKS.WARNING}
         onClick={someHandler}
         disabled
+        size ={Button.SIZES.SMALL}
       >
-        Disabled Submit
-      </Button>
-      <Button variant={Button.VARIANTS.OUTLINED} look={Button.LOOKS.SUCCESS} size={Button.SIZES.LARGE}>
-        Click me!
+        Disabled
       </Button>
     </div>
   );

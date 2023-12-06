@@ -4,8 +4,8 @@ import './style.css';
 const Button = ({
   children,
   variant,
-  look,
-  size,
+  look = Button.LOOKS.PRIMARY,
+  size = Button.SIZES.MEDIUM,
   disabled,
   onClick,
   as,
