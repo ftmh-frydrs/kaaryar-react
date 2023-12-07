@@ -1,3 +1,4 @@
+import React from "react";
 import "./style.css";
 
 const Button = ({
@@ -10,16 +11,13 @@ const Button = ({
   href,
   target,
   className,
-  type,
   onClick,
   ...rest
 }) => {
-
   const handleClick = () => {
     if (onClick && !disabled) {
       onClick();
     }
-
   };
 
   const buttonClasses = `button ${variant} ${look} ${size} ${
@@ -32,6 +30,8 @@ const Button = ({
         className={buttonClasses}
         onClick={handleClick}
         disabled={disabled}
+        href={href}
+        target={target}
         {...rest}
       >
         {children}

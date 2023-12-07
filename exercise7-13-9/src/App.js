@@ -64,7 +64,7 @@ const App = () => {
         <Button variant={Button.VARIANTS.OUTLINED} look={Button.LOOKS.WARNING}>
           ثبت
         </Button>
-        <Button variant={Button.VARIANTS.OUTLINED} look={Button.LOOKS.INFO}>
+        <Button variant={Button.VARIANTS.OUTLINED} look={Button.LOOKS.INFO} type='reset'>
           جدید
         </Button>
       </div>
