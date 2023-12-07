@@ -1,24 +1,36 @@
-import React from 'react';
-import './style.css';
+import "./style.css";
 
 const Button = ({
   children,
-  variant,
+  variant = Button.VARIANTS.FILLED,
   look = Button.LOOKS.PRIMARY,
   size = Button.SIZES.MEDIUM,
   disabled,
-  onClick,
   as,
-  textColor,
+  href,
+  target,
+  className,
+  type,
+  onClick,
   ...rest
 }) => {
-  const buttonClasses = `button ${variant} ${look} ${size} ${disabled ? 'disabled' : ''}`;
 
-  if (as === 'a') {
+  const handleClick = () => {
+    if (onClick && !disabled) {
+      onClick();
+    }
+
+  };
+
+  const buttonClasses = `button ${variant} ${look} ${size} ${
+    disabled ? "disabled" : ""
+  }`;
+
+  if (as === "a") {
     return (
       <a
         className={buttonClasses}
-        onClick={onClick}
+        onClick={handleClick}
         disabled={disabled}
         {...rest}
       >
@@ -29,7 +41,7 @@ const Button = ({
     return (
       <button
         className={buttonClasses}
-        onClick={onClick}
+        onClick={handleClick}
         disabled={disabled}
         {...rest}
       >
@@ -40,24 +52,24 @@ const Button = ({
 };
 
 Button.VARIANTS = {
-  FILLED: 'filled',
-  OUTLINED: 'outlined',
+  FILLED: "filled",
+  OUTLINED: "outlined",
 };
 
 Button.LOOKS = {
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary',
-  SUCCESS: 'success',
-  DANGER: 'danger',
-  WARNING: 'warning',
-  INFO: 'info',
-  DARK: 'dark',
+  PRIMARY: "primary",
+  SECONDARY: "secondary",
+  SUCCESS: "success",
+  DANGER: "danger",
+  WARNING: "warning",
+  INFO: "info",
+  DARK: "dark",
 };
 
 Button.SIZES = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large',
+  SMALL: "small",
+  MEDIUM: "medium",
+  LARGE: "large",
 };
 
 export default Button;

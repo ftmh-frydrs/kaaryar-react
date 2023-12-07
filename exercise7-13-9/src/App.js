@@ -1,68 +1,85 @@
-import React from 'react';
-import Button from './components/Button';
+import React from "react";
+import Button from "./components/Button";
 
 const App = () => {
   const someHandler = () => {
-    alert('Button clicked!');
+    console.log("Button clicked!");
   };
 
   return (
     <div>
       <div>
-        <Button variant={Button.VARIANTS.FILLED} look={Button.LOOKS.PRIMARY}>
-          PRIMARY
+        <Button
+          variant={Button.VARIANTS.FILLED}
+          look={Button.LOOKS.PRIMARY}
+          onClick={someHandler}
+        >
+          ورود
         </Button>
-        <Button variant={Button.VARIANTS.FILLED} look={Button.LOOKS.SECONDARY}>
-          SECONDARY
+        <Button
+          variant={Button.VARIANTS.FILLED}
+          look={Button.LOOKS.SECONDARY}
+          onClick={someHandler}
+        >
+          ثبت نام
         </Button>
-        <Button variant={Button.VARIANTS.FILLED} look={Button.LOOKS.SUCCESS}>
-          SUCCESS
+        <Button
+          variant={Button.VARIANTS.FILLED}
+          look={Button.LOOKS.SUCCESS}
+          onClick={someHandler}
+        >
+          تایید
         </Button>
-        <Button variant={Button.VARIANTS.FILLED} look={Button.LOOKS.DANGER}>
-          DANGER
+        <Button
+          variant={Button.VARIANTS.FILLED}
+          look={Button.LOOKS.DANGER}
+          onClick={someHandler}
+        >
+          انصراف
         </Button>
         <Button variant={Button.VARIANTS.FILLED} look={Button.LOOKS.WARNING}>
-          WARNING
+          ثبت
         </Button>
         <Button variant={Button.VARIANTS.FILLED} look={Button.LOOKS.INFO}>
-          INFO
+          جدید
         </Button>
       </div>
 
       <div>
         <Button variant={Button.VARIANTS.OUTLINED} look={Button.LOOKS.PRIMARY}>
-          PRIMARY
+          ورود
         </Button>
-        <Button variant={Button.VARIANTS.OUTLINED} look={Button.LOOKS.SECONDARY}>
-          SECONDARY
+        <Button
+          variant={Button.VARIANTS.OUTLINED}
+          look={Button.LOOKS.SECONDARY}
+        >
+          ثبت نام
         </Button>
         <Button variant={Button.VARIANTS.OUTLINED} look={Button.LOOKS.SUCCESS}>
-          SUCCESS
+          تایید
         </Button>
         <Button variant={Button.VARIANTS.OUTLINED} look={Button.LOOKS.DANGER}>
-          DANGER
+          انصراف
         </Button>
         <Button variant={Button.VARIANTS.OUTLINED} look={Button.LOOKS.WARNING}>
-          WARNING
+          ثبت
         </Button>
         <Button variant={Button.VARIANTS.OUTLINED} look={Button.LOOKS.INFO}>
-          INFO
+          جدید
         </Button>
       </div>
 
-      <Button size={Button.SIZES.LARGE}>
-        Button lg
-      </Button>
+      <Button size={Button.SIZES.LARGE}>دکمه لارج</Button>
       <Button as="a" href="https://google.com" target="_blank">
-        Button
+        دکمه
       </Button>
       <Button
         type="submit"
         onClick={someHandler}
         disabled
-        size ={Button.SIZES.SMALL}
+        size={Button.SIZES.SMALL}
       >
-        Disabled
+        دکمه اسمال
       </Button>
     </div>
   );
