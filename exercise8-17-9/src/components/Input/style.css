@@ -1,0 +1,7 @@
+.input {
+    width: 90%;
+    height: 50px;
+    
+    display: flex;
+    margin:20px auto;
+}

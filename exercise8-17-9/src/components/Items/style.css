@@ -1,0 +1,7 @@
+.items {
+    padding: 20px 0px;
+    max-height: 60px;
+    min-height: 400px;
+    overflow-y: auto;
+  }
+  

@@ -1,0 +1,8 @@
+.action-btn {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 16px;
+    padding: 16px 32px;
+    box-shadow: 0 1px 0 gray inset;
+    justify-content: flex-end;
+  }

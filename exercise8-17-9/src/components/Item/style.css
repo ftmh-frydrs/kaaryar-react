@@ -1,0 +1,53 @@
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 32px;
+    padding: 12px 8px;
+    margin: 0 16px;
+    font-size: 16px;
+    font-family: 'Vazirmatn Medium';
+  }
+  
+  .title-todo {
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  
+  .remove-btn {
+    position: relative;
+    border-radius: 100%;
+    background-color: #F0F0F0;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .item:hover {
+    background-color: #F84546;
+    transition: background-color 0.3s;
+  }
+  
+  .item:hover p {
+    color: white;
+    transition: color 0.3s;
+  }
+  
+  .item:hover .btn-x {
+    background-color: white;
+    color: #F84546;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .item:hover .btn-x::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #F84546;
+    transition: color 0.3s;
+  }
