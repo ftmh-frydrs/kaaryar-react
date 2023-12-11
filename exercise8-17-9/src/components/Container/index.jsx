@@ -18,11 +18,6 @@ const Container = () => {
       isMounted.current = false;
     }
   }, []); 
-  useEffect(() => {
-    if (!isMounted.current) {
-      writeJSON('tasks', tasks);
-    }
-  }, [tasks]);
 
   useEffect(() => {
     writeJSON('tasks', tasks);
