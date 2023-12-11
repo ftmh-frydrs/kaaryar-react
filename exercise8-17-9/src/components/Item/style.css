@@ -25,29 +25,17 @@
     height: 24px;
     text-align: center;
     transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .remove-btn:hover {
+    background-color: #ffff;
+    color: #F84546;
   }
   
   .item:hover {
     background-color: #F84546;
     transition: background-color 0.3s;
-  }
-  
-  .item:hover p {
-    color: white;
-    transition: color 0.3s;
-  }
-  
-  .item:hover .btn-x {
-    background-color: white;
-    color: #F84546;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .item:hover .btn-x::before {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #F84546;
-    transition: color 0.3s;
+    color: #ffff;
   }
