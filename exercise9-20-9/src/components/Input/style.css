@@ -1,0 +1,21 @@
+.input-box {
+    margin-bottom: 15px;
+    width: 80%;
+  }
+  
+  .user-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .details{
+    font-size: large;
+  }
+  
