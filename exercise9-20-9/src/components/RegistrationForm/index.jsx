@@ -20,16 +20,19 @@ const RegistrationForm = () => {
     if (!value) {
       return 'نام و نام خانوادگی اجباری است.';
     } else if (!regex.test(value.trim())) {
-      return 'نام و نام خانوادگی باید فقط شامل حروف فارسی باشند.';
+      return 'نام و نام خانوادگی باید فقط شامل حروف فارسی باشند';
     }
     return '';
   };
 
+
   const validateEmail = (value) => {
     if (!value) {
       return 'ایمیل اجباری است.';
+    } else if (oldEmails.includes(value)) {
+      return 'ایمیل وارد شده تکراری است.';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-      return 'ساختار ایمیل معتبر نیست.';
+      return 'ساختار ایمیل معتبر نیست';
     }
     return '';
   };
@@ -38,20 +41,20 @@ const RegistrationForm = () => {
     if (!value) {
       return 'رمزعبور اجباری است.';
     } else if (value.length < 12) {
-      return 'طول رمزعبور باید حداقل 12 کاراکتر باشد.';
+      return 'طول رمزعبور باید حداقل 12 کاراکتر باشد';
     } else if (!/[A-Z]+/.test(value) || !/[a-z]+/.test(value) || !/\d+/.test(value)) {
-      return 'رمزعبور باید حداقل شامل یک حرف بزرگ انگلیسی، یک حرف کوچک انگلیسی و یک عدد باشد.';
+      return 'رمزعبور باید حداقل شامل یک حرف بزرگ انگلیسی، یک حرف کوچک انگلیسی و یک عدد باشد';
     } else if (weakPasswords.includes(value)) {
-      return 'رمز عبور ضعیف است.';
+      return 'رمز عبور ضعیف است';
     }
     return '';
   };
 
   const validateConfirmPassword = (value) => {
     if (!value) {
-      return 'تکرار رمزعبور اجباری است.';
+      return 'تکرار رمزعبور اجباری است';
     } else if (value !== formData.password) {
-      return 'تکرار رمزعبور باید دقیقاً مشابه رمزعبور باشد.';
+      return 'تکرار رمزعبور باید دقیقاً مشابه رمزعبور باشد';
     }
     return '';
   };
@@ -60,7 +63,7 @@ const RegistrationForm = () => {
     if (!value) {
       return "شهر محل سکونت اجباری است.";
     } else if (!cities.includes(value)) {
-      return "شهر محل سکونت باید حتماً یکی از شهرهای موجود باشد.";
+      return "شهر محل سکونت باید حتماً یکی از شهرهای موجود باشد";
     }
     return "";
   };
@@ -69,16 +72,16 @@ const RegistrationForm = () => {
     if (!value) {
       return "جنسیت اجباری است.";
     } else if (!["male", "female", "notSpecified"].includes(value)) {
-      return "جنسیت باید یکی از مقادیر موجود باشد.";
+      return "جنسیت باید یکی از مقادیر موجود باشد";
     }
     return "";
   };
 
   const validateSkills = (value) => {
     if (!value || value.length === 0) {
-      return "مشخص کردن حداقل یک مهارت اجباری است.";
+      return "مشخص کردن حداقل یک مهارت اجباری است";
     } else if (!value.every((skill) => skills.includes(skill))) {
-      return "برخی مهارت‌های انتخاب شده، در لیست مهارت‌های قابل انتخاب نیستند.";
+      return "برخی مهارت‌های انتخاب شده، در لیست مهارت‌های قابل انتخاب نیستند";
     }
     return "";
   };
@@ -169,27 +172,33 @@ const RegistrationForm = () => {
     "123",
   ];
 
+  const oldEmails = ["user1@example.com", "user2@example.com", "user3@example.com"];
+
   return (
     <div className="container">
       <div className="title">Registration</div>
       <div className="content">
 
         <form onSubmit={handleSubmit} onReset={handleReset}>
+
           <div className="user-details">
+
+            <div className="w-full">
             <Input
             type='text'
             id='fullName'
               label="Full Name"
               name="fullName"
               placeholder="Enter your name"
-              required
               value={formData.fullName}
               onChange={(e) => handleInputChange("fullName", e.target.value)}
             />
             <div className="error">
             {errors.fullName}
             </div>
+            </div>
 
+            <div className="w-full">
             <Input
               label="Email"
               id='email'
@@ -198,12 +207,13 @@ const RegistrationForm = () => {
               placeholder="Enter your email"
               value={formData.email}
               onChange={(e) => handleInputChange("email", e.target.value)}
-              required
             />
             <div className="error">
             {errors.email}
             </div>
+            </div>
 
+            <div className="w-full">
             <Input
             id='password'
               label="Password"
@@ -212,12 +222,13 @@ const RegistrationForm = () => {
               placeholder="Enter your password"
               value={formData.password}
               onChange={(e) => handleInputChange("password", e.target.value)}
-              required
             />
             <div className="error">
             {errors.password}
             </div>
+            </div>
 
+            <div className="w-full">
             <Input
             id='confirmPassword'
               label="Confirm Password"
@@ -228,10 +239,10 @@ const RegistrationForm = () => {
               onChange={(e) =>
                 handleInputChange("confirmPassword", e.target.value)
               }
-              required
             />
             <div className="error">
             {errors.confirmPassword}
+            </div>
             </div>
             
             <div className="w-full">
@@ -254,13 +265,13 @@ const RegistrationForm = () => {
                   </option>
                 ))}
               </select>
-              {errors.city && <div className="error">{errors.city}</div>}
+              <div className="error">{errors.city}</div>
             </div>
 
 
             <div className="radio-group">
               <p className="info">Gender</p>
-              <div className="flex">
+              <div className="w-full">
                 <Input
                 className='radio_input'
                 type='radio'
@@ -289,10 +300,10 @@ const RegistrationForm = () => {
                   onChange={() => handleInputChange("gender", "notSpecified")}
                 />
               </div>
-              {errors.gender && <div className="error">{errors.gender}</div>}
+              <div className="error">{errors.gender}</div>
             </div>
 
-            <div className="w-full">
+            <div>
             <p className="info">Skills</p><br/>
             <div className="checkbox-group grid">
               {skills.map((skill) => (
@@ -316,8 +327,8 @@ const RegistrationForm = () => {
                   <label htmlFor={skill}>{skill}</label>
                 </div>
               ))}
-              {errors.skills && <div className="error">{errors.skills}</div>}
             </div>
+            <div className="error">{errors.skills}</div>
           </div>
           </div>
 
