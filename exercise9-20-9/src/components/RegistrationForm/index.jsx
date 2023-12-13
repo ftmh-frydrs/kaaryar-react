@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import Input from "../Input";
+import Button from "../Button";
+import cities from '../../data/cities.json';
+import skills from '../../data/skills.json';
+import weakPasswords from '../../data/weak-passwords.json';
+import oldEmails from '../../data/old-email.json'
 import "./style.css";
 
 const RegistrationForm = () => {
@@ -129,50 +134,12 @@ const RegistrationForm = () => {
     setErrors({});
   };
 
+  
+
   const handleInputChange = (name, value) => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
     setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
   };
-
-  const cities = [
-    "تهران",
-    "مشهد",
-    "کرج",
-    "شیراز",
-    "اصفهان",
-    "اهواز",
-    "تبریز",
-    "کرمانشاه",
-    "قم",
-    "رشت",
-  ];
-  const skills = [
-    "Html",
-    "Javscript",
-    "CSS",
-    "React",
-    "Frontend",
-    "Backend",
-    "Vue",
-    "Angular",
-    "Django",
-    "Next.js",
-    "Nuxt.js",
-  ];
-  const weakPasswords = [
-    "123456",
-    "12345",
-    "password",
-    "usr",
-    "123456789",
-    "1234",
-    "12345678",
-    "qwerty",
-    "147258369",
-    "123",
-  ];
-
-  const oldEmails = ["user1@example.com", "user2@example.com", "user3@example.com"];
 
   return (
     <div className="container">
@@ -333,8 +300,8 @@ const RegistrationForm = () => {
           </div>
 
           <div className="flex">
-            <Input className='input_btn' type="submit" value="Register" />
-            <Input className='input_btn' type="reset" value="Clear All" />
+            <Button type="submit">Register</Button>
+            <Button type="reset">Clear All </Button>
           </div>
         </form>
       </div>
