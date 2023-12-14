@@ -6,6 +6,7 @@ const Input = ({ label, name, placeholder, value, onChange, required , type , id
     <div className="input-box">
       <label className="details" htmlFor={id}>{label}</label>
       <input
+      className='user-details'
         type={type}
         name={name}
         placeholder={placeholder}

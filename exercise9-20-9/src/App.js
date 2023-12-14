@@ -4,6 +4,7 @@ import RegistrationForm from './components/RegistrationForm';
 function App() {
   return (
     <div>
+      <div className="title">Registration</div>
       <RegistrationForm />
     </div>
   );

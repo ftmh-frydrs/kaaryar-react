@@ -1,9 +1,9 @@
 .input-box {
     margin-bottom: 15px;
-    width: 80%;
+    width: 90%;
   }
   
-  .user-details .input-box input {
+  .user-details{
     height: 45px;
     width: 100%;
     outline: none;
@@ -17,5 +17,6 @@
   
   .details{
     font-size: large;
+    margin-bottom: 10px;
   }
   

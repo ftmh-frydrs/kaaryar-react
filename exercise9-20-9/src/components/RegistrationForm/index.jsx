@@ -1,72 +1,75 @@
 import React, { useState } from "react";
 import Input from "../Input";
 import Button from "../Button";
-import cities from '../../data/cities.json';
-import skills from '../../data/skills.json';
-import weakPasswords from '../../data/weak-passwords.json';
-import oldEmails from '../../data/old-email.json'
+import cities from "../../data/cities.json";
+import skills from "../../data/skills.json";
+import weakPasswords from "../../data/weak-passwords.json";
+import oldEmails from "../../data/old-email.json";
 import "./style.css";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    city: '',
-    gender: '',
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    city: "",
+    gender: "",
     skills: [],
   });
 
   const [errors, setErrors] = useState({});
 
   const validateFullName = (value) => {
-    const regex = /^[\u0600-\u06FF\s]+$/; 
+    const regex = /^[\u0600-\u06FF\s]+$/;
     if (!value) {
-      return 'نام و نام خانوادگی اجباری است.';
+      return "نام و نام خانوادگی اجباری است.";
     } else if (!regex.test(value.trim())) {
-      return 'نام و نام خانوادگی باید فقط شامل حروف فارسی باشند';
+      return "نام و نام خانوادگی باید فقط شامل حروف فارسی باشند";
     }
-    return '';
+    return "";
   };
-
 
   const validateEmail = (value) => {
     if (!value) {
-      return 'ایمیل اجباری است.';
+      return "ایمیل اجباری است";
     } else if (oldEmails.includes(value)) {
-      return 'ایمیل وارد شده تکراری است.';
+      return "ایمیل وارد شده تکراری است";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-      return 'ساختار ایمیل معتبر نیست';
+      return "ساختار ایمیل معتبر نیست";
     }
-    return '';
+    return "";
   };
 
   const validatePassword = (value) => {
     if (!value) {
-      return 'رمزعبور اجباری است.';
+      return "رمزعبور اجباری است";
     } else if (value.length < 12) {
-      return 'طول رمزعبور باید حداقل 12 کاراکتر باشد';
-    } else if (!/[A-Z]+/.test(value) || !/[a-z]+/.test(value) || !/\d+/.test(value)) {
-      return 'رمزعبور باید حداقل شامل یک حرف بزرگ انگلیسی، یک حرف کوچک انگلیسی و یک عدد باشد';
+      return "طول رمزعبور باید حداقل 12 کاراکتر باشد";
+    } else if (
+      !/[A-Z]+/.test(value) ||
+      !/[a-z]+/.test(value) ||
+      !/\d+/.test(value)
+    ) {
+      return "رمزعبور باید حداقل شامل یک حرف بزرگ انگلیسی، یک حرف کوچک انگلیسی و یک عدد باشد";
     } else if (weakPasswords.includes(value)) {
-      return 'رمز عبور ضعیف است';
+      return "رمز عبور ضعیف است";
     }
-    return '';
+    return "";
   };
 
   const validateConfirmPassword = (value) => {
     if (!value) {
-      return 'تکرار رمزعبور اجباری است';
+      return "تکرار رمزعبور اجباری است";
     } else if (value !== formData.password) {
-      return 'تکرار رمزعبور باید دقیقاً مشابه رمزعبور باشد';
+      return "تکرار رمزعبور باید دقیقاً مشابه رمزعبور باشد";
     }
-    return '';
+    return "";
   };
 
   const validateCity = (value) => {
     if (!value) {
-      return "شهر محل سکونت اجباری است.";
+      return "شهر محل سکونت اجباری است";
     } else if (!cities.includes(value)) {
       return "شهر محل سکونت باید حتماً یکی از شهرهای موجود باشد";
     }
@@ -75,7 +78,7 @@ const RegistrationForm = () => {
 
   const validateGender = (value) => {
     if (!value) {
-      return "جنسیت اجباری است.";
+      return "جنسیت اجباری است";
     } else if (!["male", "female", "notSpecified"].includes(value)) {
       return "جنسیت باید یکی از مقادیر موجود باشد";
     }
@@ -118,6 +121,7 @@ const RegistrationForm = () => {
 
     if (!Object.values(newErrors).some((error) => error !== "")) {
       console.log("Register Successful");
+      console.log(formData);
     }
   };
 
@@ -134,8 +138,6 @@ const RegistrationForm = () => {
     setErrors({});
   };
 
-  
-
   const handleInputChange = (name, value) => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
     setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
@@ -143,78 +145,70 @@ const RegistrationForm = () => {
 
   return (
     <div className="container">
-      <div className="title">Registration</div>
       <div className="content">
-
-        <form onSubmit={handleSubmit} onReset={handleReset}>
-
-          <div className="user-details">
-
+        <form onSubmit={handleSubmit} onReset={handleReset} noValidate>
+          <div className="user-details1">
             <div className="w-full">
-            <Input
-            type='text'
-            id='fullName'
-              label="Full Name"
-              name="fullName"
-              placeholder="Enter your name"
-              value={formData.fullName}
-              onChange={(e) => handleInputChange("fullName", e.target.value)}
-            />
-            <div className="error">
-            {errors.fullName}
-            </div>
+              <Input
+                type="text"
+                id="fullName"
+                label="Full Name"
+                name="fullName"
+                placeholder="Enter your name"
+                value={formData.fullName}
+                onChange={(e) => handleInputChange("fullName", e.target.value)}
+              />
+              <div className="error">{errors.fullName}</div>
             </div>
 
             <div className="w-full">
-            <Input
-              label="Email"
-              id='email'
-              name="email"
-              type="email"
-              placeholder="Enter your email"
-              value={formData.email}
-              onChange={(e) => handleInputChange("email", e.target.value)}
-            />
-            <div className="error">
-            {errors.email}
-            </div>
+              <Input
+                label="Email"
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={(e) => handleInputChange("email", e.target.value)}
+              />
+              <div className="error">{errors.email}</div>
             </div>
 
             <div className="w-full">
-            <Input
-            id='password'
-              label="Password"
-              name="password"
-              type="password"
-              placeholder="Enter your password"
-              value={formData.password}
-              onChange={(e) => handleInputChange("password", e.target.value)}
-            />
-            <div className="error">
-            {errors.password}
-            </div>
+              <Input
+                id="password"
+                label="Password"
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={(e) => handleInputChange("password", e.target.value)}
+              />
+              <div className="error">{errors.password}</div>
             </div>
 
             <div className="w-full">
-            <Input
-            id='confirmPassword'
-              label="Confirm Password"
-              name="confirmPassword"
-              type="password"
-              placeholder="Confirm your password"
-              value={formData.confirmPassword}
-              onChange={(e) =>
-                handleInputChange("confirmPassword", e.target.value)
-              }
-            />
-            <div className="error">
-            {errors.confirmPassword}
+              <Input
+                id="confirmPassword"
+                label="Confirm Password"
+                name="confirmPassword"
+                type="password"
+                placeholder="Confirm your password"
+                value={formData.confirmPassword}
+                onChange={(e) =>
+                  handleInputChange("confirmPassword", e.target.value)
+                }
+              />
+              <div className="error">{errors.confirmPassword}</div>
             </div>
             </div>
-            
+
+            <div className="user-details2">   
+
             <div className="w-full">
               <p className="info">City</p>
-              <select className="select"
+              <select
+                className="select"
                 name="city"
                 value={formData.city}
                 onChange={(e) => handleInputChange("city", e.target.value)}
@@ -234,14 +228,14 @@ const RegistrationForm = () => {
               </select>
               <div className="error">{errors.city}</div>
             </div>
-
+            
 
             <div className="radio-group">
-              <p className="info">Gender</p>
+              <p className="info">Gender</p><br/>
               <div className="w-full">
                 <Input
-                className='radio_input'
-                type='radio'
+                  className="radio_input"
+                  type="radio"
                   label="Male"
                   name="gender"
                   value="male"
@@ -249,8 +243,8 @@ const RegistrationForm = () => {
                   onChange={() => handleInputChange("gender", "male")}
                 />
                 <Input
-                className='radio_input'
-                  type='radio'
+                  className="radio_input"
+                  type="radio"
                   label="Female"
                   name="gender"
                   value="female"
@@ -258,8 +252,8 @@ const RegistrationForm = () => {
                   onChange={() => handleInputChange("gender", "female")}
                 />
                 <Input
-                className='radio_input'
-                type='radio'
+                  className="radio_input"
+                  type="radio"
                   label="Prefer not to say"
                   name="gender"
                   value="notSpecified"
@@ -271,33 +265,35 @@ const RegistrationForm = () => {
             </div>
 
             <div>
-            <p className="info">Skills</p><br/>
-            <div className="checkbox-group grid">
-              {skills.map((skill) => (
-                <div key={skill}>
-                  <Input
-                  className ='check_input'
-                    type="checkbox"
-                    name="skills"
-                    id={skill}
-                    value={skill}
-                    checked={formData.skills.includes(skill)}
-                    onChange={() =>
-                      handleInputChange(
-                        "skills",
-                        formData.skills.includes(skill)
-                          ? formData.skills.filter((s) => s !== skill)
-                          : [...formData.skills, skill]
-                      )
-                    }
-                  />
-                  <label htmlFor={skill}>{skill}</label>
-                </div>
-              ))}
+              <p className="info">Skills</p>
+              <br />
+              <div className="checkbox-group grid">
+                {skills.map((skill) => (
+                  <div key={skill}>
+                    <Input
+                      className="check_input"
+                      type="checkbox"
+                      name="skills"
+                      id={skill}
+                      value={skill}
+                      checked={formData.skills.includes(skill)}
+                      onChange={() =>
+                        handleInputChange(
+                          "skills",
+                          formData.skills.includes(skill)
+                            ? formData.skills.filter((s) => s !== skill)
+                            : [...formData.skills, skill]
+                        )
+                      }
+                    />
+                    <label htmlFor={skill}>{skill}</label>
+                  </div>
+                ))}
+              </div>
+              <div className="error">{errors.skills}</div>
             </div>
-            <div className="error">{errors.skills}</div>
-          </div>
-          </div>
+            </div>
+         
 
           <div className="flex">
             <Button type="submit">Register</Button>
