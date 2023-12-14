@@ -122,6 +122,7 @@ const RegistrationForm = () => {
     if (!Object.values(newErrors).some((error) => error !== "")) {
       console.log("Register Successful");
       console.log(formData);
+      handleReset();
     }
   };
 

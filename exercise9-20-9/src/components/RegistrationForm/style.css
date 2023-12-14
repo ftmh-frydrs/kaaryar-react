@@ -13,6 +13,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    font-family: 'Vazirmatn Medium';
 }
 
 
@@ -23,6 +25,7 @@
 }
 
 .user-details2 {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 12px;
@@ -48,7 +51,7 @@
 
 .error {
     color: red;
-    font-size:medium;
+    font-size: small;
     margin-top: 8px;
     text-align: center;
 }
