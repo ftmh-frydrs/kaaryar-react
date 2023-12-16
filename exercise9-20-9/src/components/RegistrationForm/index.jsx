@@ -213,12 +213,6 @@ const RegistrationForm = () => {
                 name="city"
                 value={formData.city}
                 onChange={(e) => handleInputChange("city", e.target.value)}
-                onBlur={() =>
-                  setErrors((prevErrors) => ({
-                    ...prevErrors,
-                    city: validateCity(formData.city),
-                  }))
-                }
               >
                 <option value="">Select your city</option>
                 {cities.map((city) => (
