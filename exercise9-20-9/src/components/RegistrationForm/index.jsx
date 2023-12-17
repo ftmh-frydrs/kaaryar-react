@@ -8,6 +8,7 @@ import oldEmails from "../../data/old-email.json";
 import "./style.css";
 
 const RegistrationForm = () => {
+   const [hasSubmitted, stHasSubmitted]=useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -96,17 +97,16 @@ const RegistrationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
+    stHasSubmitted(true);
     const fullNameError = validateFullName(formData.fullName);
     const emailError = validateEmail(formData.email);
     const passwordError = validatePassword(formData.password);
-    const confirmPasswordError = validateConfirmPassword(
-      formData.confirmPassword
-    );
+    const confirmPasswordError = validateConfirmPassword(formData.confirmPassword);
     const cityError = validateCity(formData.city);
     const genderError = validateGender(formData.gender);
     const skillsError = validateSkills(formData.skills);
-
+  
     const newErrors = {
       fullName: fullNameError,
       email: emailError,
@@ -116,15 +116,17 @@ const RegistrationForm = () => {
       gender: genderError,
       skills: skillsError,
     };
-
+  
     setErrors(newErrors);
-
+  
     if (!Object.values(newErrors).some((error) => error !== "")) {
       console.log("Register Successful");
       console.log(formData);
       handleReset();
+      setErrors(newErrors);
     }
   };
+  
 
   const handleReset = () => {
     setFormData({
@@ -137,12 +139,40 @@ const RegistrationForm = () => {
       skills: [],
     });
     setErrors({});
+    stHasSubmitted(false);
   };
 
-  const handleInputChange = (name, value) => {
+  const handleFieldChange = (name, value) => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
-    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+    if (hasSubmitted) {
+      const error = validateField(name, value);
+      setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
+    }
   };
+
+  const validateField = (name, value) => {
+    switch (name) {
+      case "fullName":
+        return validateFullName(value);
+      case "email":
+        return validateEmail(value);
+      case "password":
+        return validatePassword(value);
+      case "confirmPassword":
+        return validateConfirmPassword(value);
+      case "city":
+        return validateCity(value);
+      case "gender":
+        return validateGender(value);
+      case "skills":
+        return validateSkills(value);
+      default:
+        return "";
+    }
+  };
+  
+  
+
 
   return (
     <div className="container">
@@ -157,7 +187,7 @@ const RegistrationForm = () => {
                 name="fullName"
                 placeholder="Enter your name"
                 value={formData.fullName}
-                onChange={(e) => handleInputChange("fullName", e.target.value)}
+                onChange={(e) => handleFieldChange("fullName", e.target.value)}
               />
               <div className="error">{errors.fullName}</div>
             </div>
@@ -170,9 +200,9 @@ const RegistrationForm = () => {
                 type="email"
                 placeholder="Enter your email"
                 value={formData.email}
-                onChange={(e) => handleInputChange("email", e.target.value)}
+                onChange={(e) => handleFieldChange("email", e.target.value)}
+                error={errors.email}
               />
-              <div className="error">{errors.email}</div>
             </div>
 
             <div className="w-full">
@@ -183,7 +213,7 @@ const RegistrationForm = () => {
                 type="password"
                 placeholder="Enter your password"
                 value={formData.password}
-                onChange={(e) => handleInputChange("password", e.target.value)}
+                onChange={(e) => handleFieldChange("password", e.target.value)}
               />
               <div className="error">{errors.password}</div>
             </div>
@@ -197,7 +227,7 @@ const RegistrationForm = () => {
                 placeholder="Confirm your password"
                 value={formData.confirmPassword}
                 onChange={(e) =>
-                  handleInputChange("confirmPassword", e.target.value)
+                  handleFieldChange("confirmPassword", e.target.value)
                 }
               />
               <div className="error">{errors.confirmPassword}</div>
@@ -212,7 +242,7 @@ const RegistrationForm = () => {
                 className="select"
                 name="city"
                 value={formData.city}
-                onChange={(e) => handleInputChange("city", e.target.value)}
+                onChange={(e) => handleFieldChange("city", e.target.value)}
               >
                 <option value="">Select your city</option>
                 {cities.map((city) => (
@@ -235,7 +265,7 @@ const RegistrationForm = () => {
                   name="gender"
                   value="male"
                   checked={formData.gender === "male"}
-                  onChange={() => handleInputChange("gender", "male")}
+                  onChange={() => handleFieldChange("gender", "male")}
                 />
                 <Input
                   className="radio_input"
@@ -244,7 +274,7 @@ const RegistrationForm = () => {
                   name="gender"
                   value="female"
                   checked={formData.gender === "female"}
-                  onChange={() => handleInputChange("gender", "female")}
+                  onChange={() => handleFieldChange("gender", "female")}
                 />
                 <Input
                   className="radio_input"
@@ -253,7 +283,7 @@ const RegistrationForm = () => {
                   name="gender"
                   value="notSpecified"
                   checked={formData.gender === "notSpecified"}
-                  onChange={() => handleInputChange("gender", "notSpecified")}
+                  onChange={() => handleFieldChange("gender", "notSpecified")}
                 />
               </div>
               <div className="error">{errors.gender}</div>
@@ -273,7 +303,7 @@ const RegistrationForm = () => {
                       value={skill}
                       checked={formData.skills.includes(skill)}
                       onChange={() =>
-                        handleInputChange(
+                        handleFieldChange(
                           "skills",
                           formData.skills.includes(skill)
                             ? formData.skills.filter((s) => s !== skill)

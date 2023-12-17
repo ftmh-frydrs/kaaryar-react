@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css'
 
-const Input = ({ label, name, placeholder, value, onChange, required , type , id , ...rest }) => {
+const Input = ({ label, name, placeholder, value, onChange, required, error , type , id , ...rest }) => {
   return (
     <div className="input-box">
       <label className="details" htmlFor={id}>{label}</label>
@@ -16,6 +16,7 @@ const Input = ({ label, name, placeholder, value, onChange, required , type , id
         id = {id}
         {...rest}
       />
+      <div className="error">{error}</div>
     </div>
   );
 };
