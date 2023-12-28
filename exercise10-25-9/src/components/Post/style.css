@@ -1,0 +1,25 @@
+.posts {
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0px;
+}
+
+.posts_title {
+    font-size: larger;
+    color: rgb(61, 90, 90);
+    text-decoration: none;
+    margin: 5px 0px;
+}
+
+
+.posts-date {
+    color:rgb(181, 181, 181);
+    font-size: smaller;
+    margin: 5px 0;
+}
+
+.posts_text {
+    color: #282727;
+    font-size: small;
+    line-height: 1.5;
+}

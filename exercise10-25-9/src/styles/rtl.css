@@ -1,0 +1,4 @@
+body, input, div, h1, h2, h3, p, section, span, a, ul, ol, li, img, button, form, label, nav, header, footer, article, aside, main, figure, figcaption, table, tr, td, th, tbody, thead, tfoot, textarea, select, option, strong, em, i, b, u, s, small, mark, sub, sup, code, pre, blockquote, cite, address, time, del, ins, dfn, kbd, samp, var, abbr, acronym, fieldset, legend, progress, meter, summary, details, audio, video, canvas, output, datalist {
+    direction: rtl;
+    font-family: Vazirmatn Medium;
+}
