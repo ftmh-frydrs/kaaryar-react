@@ -4,13 +4,15 @@ import MyPosts from '../MyPosts';
 import './style.css';
 
 
+
 function App() {
 
   const router = createBrowserRouter([
     {
       path : '/',
       element : <MyPosts />
-    }
+    },
+    
   ])
 
   return (
